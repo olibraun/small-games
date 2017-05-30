@@ -1,3 +1,5 @@
+//Sketch-Datei für Breakout
+
 var paddle;
 var paddleheight = 350;
 var acc = 7;
