@@ -34,7 +34,7 @@ function Ball(){
   }
 
   this.hitsPaddle = function(){
-    if(abs(this.pos.y - paddleheight)<=1 && this.pos.x <= paddle.rightx() && this.pos.x >= paddle.leftx()){
+    if(this.pos.y >= paddleheight && this.pos.x <= paddle.rightx()+0.1 && this.pos.x >= paddle.leftx()-0.1){
       return true;
     }else{
       return false;
@@ -42,7 +42,7 @@ function Ball(){
   }
 
   this.hitsSideWall = function(){
-    if(abs(this.pos.x)<1 || abs(this.pos.x - width) < 1){
+    if(this.pos.x<=0.1 || this.pos.x >= width-0.1){
       return true;
     }else{
       return false;
@@ -50,7 +50,7 @@ function Ball(){
   }
 
   this.hitsTopWall = function(){
-    if(abs(this.pos.y) < 1){
+    if(this.pos.y <= 0.1){
       return true;
     }else{
       return false;
