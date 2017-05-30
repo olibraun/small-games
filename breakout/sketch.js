@@ -6,10 +6,13 @@ var acc = 7;
 
 var ball;
 
+var block;
+
 function setup() {
   createCanvas(700,400);
   paddle = new Paddle();
   ball = new Ball();
+  block = new Block();
 }
 
 function draw() {
@@ -20,4 +23,5 @@ function draw() {
   paddle.show();
   ball.update();
   ball.show();
+  block.show();
 }
