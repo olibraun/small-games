@@ -11,7 +11,7 @@ function Paddle(){
 
   this.update = function(){
     this.pos += this.speed;
-    this.pos = constrain(this.pos,0,width);
+    this.pos = constrain(this.pos,this.w/2,width-this.w/2);
   }
 
   this.move = function(x){
