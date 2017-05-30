@@ -1,3 +1,5 @@
+//Ball object
+
 function Ball(){
   this.pos = createVector(width/2,0.7*paddleheight);
   this.r = 5;
