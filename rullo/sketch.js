@@ -8,10 +8,19 @@ function make2DArray(cols,rows){
   return arr;
 }
 
+var n;
+
 function setup() {
-  createCanvas(700,400);
+  createCanvas(500,700);
+  n = new num(120,120,1);
 }
 
 function draw() {
   background(51);
+  n.show();
+}
+
+function mouseClicked(){
+  console.log("F");
+  n.switchActive();
 }
