@@ -21,6 +21,10 @@ function draw() {
 }
 
 function mouseClicked(){
-  console.log("F");
-  n.switchActive();
+  console.log(mouseX);
+  console.log(mouseY);
+  console.log(n.pos);
+  if(n.hits(mouseX,mouseY)){
+    n.switchActive();
+  }
 }

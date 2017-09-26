@@ -1,6 +1,6 @@
 num = function(x,y,value){
   this.pos = createVector(x,y);
-  this.radius = 50;
+  this.diameter = 50;
 
   this.value = value;
 
@@ -19,7 +19,7 @@ num = function(x,y,value){
     }else{
       noStroke();
     }
-    ellipse(this.pos.x,this.pos.y,this.radius,this.radius);
+    ellipse(this.pos.x,this.pos.y,this.diameter,this.diameter);
     fill(255);
     noStroke();
     textAlign(CENTER,CENTER);
@@ -35,5 +35,13 @@ num = function(x,y,value){
 
   this.switchLocked = function(){
     this.locked = !this.locked;
+  }
+
+  this.hits = function(x,y){
+    if(pow(this.pos.x - x,2) + pow(this.pos.y - y,2) <= pow(this.diameter/2,2)){
+      return true;
+    }else{
+      return false;
+    }
   }
 }
