@@ -2,7 +2,7 @@ rec = function(x,y){
   this.pos = createVector(x,y);
   this.value = 0;
 
-  this.setValue(n){
+  this.setValue = function(n){
     this.value = n;
   }
 
