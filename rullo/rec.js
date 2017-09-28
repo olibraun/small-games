@@ -2,6 +2,10 @@ rec = function(x,y){
   this.pos = createVector(x,y);
   this.value = 0;
 
+  this.setValue(n){
+    this.value = n;
+  }
+
   this.show = function(){
     stroke(179, 179, 204);
     strokeWeight(3);
