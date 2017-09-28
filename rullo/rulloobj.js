@@ -1,0 +1,3 @@
+rullo = function(){
+  //...
+}
