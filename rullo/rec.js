@@ -1,6 +1,6 @@
 rec = function(x,y){
   this.pos = createVector(x,y);
-  this.value = 12;
+  this.value = 0;
 
   this.show = function(){
     stroke(179, 179, 204);

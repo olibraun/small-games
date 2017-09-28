@@ -9,38 +9,58 @@ function make2DArray(cols,rows){
 }
 
 var n;
-var myNumbers;
+var myGrid;
 var myRec;
-var offset;
+var x_offset;
+var y_offset;
 
 function setup() {
   createCanvas(500,700);
-  offset = 100;
-  myNumbers = make2DArray(5,5);
-  for(var i=0; i < 5; i++){
-    for(var j=0; j < 5; j++){
-      myNumbers[i][j] = new num(i*70 + offset,j*70 + offset,floor(random(1,10)));
+  x_offset = 38;
+  y_offset = 65;
+  myGrid = make2DArray(7,7);
+  //Initialize numbers into grid
+  for(let i=1; i < 6; i++){
+    for(let j=1; j < 6; j++){
+      myGrid[i][j] = new num(i*70 + x_offset,j*70 + y_offset,floor(random(1,10)));
     }
   }
-  myRec = new rec(30,30);
+  //Initialize rectangles into grid
+  //Top and bottom rows
+  for(let i = 1; i < 6; i++){
+    myGrid[i][0] = new rec(i*70 + x_offset,0*70 + y_offset);
+    myGrid[i][6] = new rec(i*70 + x_offset,6*70 + y_offset);
+  }
+  //Left and right columns
+  for(let j = 1; j < 6; j++){
+    myGrid[0][j] = new rec(0*70 + x_offset,j*70 + y_offset);
+    myGrid[6][j] = new rec(6*70 + x_offset,j*70 + y_offset);
+  }
 }
 
 function draw() {
   background(51);
-  myRec.show();
-  for(var i=0; i < 5; i++){
-    for(var j=0; j < 5; j++){
-      myNumbers[i][j].show();
+  //Show numbers
+  for(let i=1; i < 6; i++){
+    for(let j=1; j < 6; j++){
+      myGrid[i][j].show();
     }
+  }
+  //Show rectangles
+  for(let l = 1; l < 6; l++){
+    myGrid[l][0].show();
+    myGrid[l][6].show();
+    myGrid[0][l].show();
+    myGrid[6][l].show();
   }
 }
 
 function mouseClicked(){
-  console.log(floor(random(1,10)));
-  for(var i=0; i < 5; i++){
-    for(var j=0; j < 5; j++){
-      if(myNumbers[i][j].hits(mouseX,mouseY)){
-        myNumbers[i][j].switchActive();
+  //console.log(floor(random(1,10)));
+  for(let i=1; i < 6; i++){
+    for(let j=1; j < 6; j++){
+      if(myGrid[i][j].hits(mouseX,mouseY)){
+        myGrid[i][j].switchActive();
       }
     }
   }
