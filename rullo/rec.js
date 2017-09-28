@@ -4,8 +4,10 @@ rec = function(x,y){
 
   this.show = function(){
     stroke(179, 179, 204);
+    strokeWeight(3);
+    noFill();
     rectMode(CENTER);
-    rect(this.pos.x,this.pos.y,10,10);
+    rect(this.pos.x,this.pos.y,50,50);
 
     fill(255);
     noStroke();

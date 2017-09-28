@@ -22,7 +22,7 @@ function setup() {
       myNumbers[i][j] = new num(i*70 + offset,j*70 + offset,floor(random(1,10)));
     }
   }
-  myRec = new rec(10,10);
+  myRec = new rec(30,30);
 }
 
 function draw() {
