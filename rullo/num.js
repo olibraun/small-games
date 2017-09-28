@@ -1,11 +1,15 @@
-num = function(x,y,value){
+num = function(x,y){
   this.pos = createVector(x,y);
   this.diameter = 50;
 
-  this.value = value;
+  this.value = 0;
 
   this.active = true;
   this.locked = false;
+
+  this.setValue = function(n){
+    this.value = n;
+  }
 
   this.show = function(){
     if(this.active){
