@@ -7,6 +7,12 @@ rec = function(x,y){
     this.value = n;
   }
 
+  this.checkTarget = function(n){
+    if(n == this.value){
+      this.targetReached = true;
+    }
+  }
+
   this.show = function(){
     if(!this.targetReached){
       //Grau
