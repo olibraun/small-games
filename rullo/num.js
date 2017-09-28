@@ -24,7 +24,7 @@ num = function(x,y,value){
     noStroke();
     textAlign(CENTER,CENTER);
     textSize(20);
-    text(str(value),this.pos.x,this.pos.y);
+    text(str(this.value),this.pos.x,this.pos.y);
   }
 
   this.switchActive = function(){
