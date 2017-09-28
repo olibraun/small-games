@@ -10,6 +10,7 @@ function make2DArray(cols,rows){
 
 var n;
 var myNumbers;
+var myRec;
 var offset;
 
 function setup() {
@@ -21,10 +22,12 @@ function setup() {
       myNumbers[i][j] = new num(i*70 + offset,j*70 + offset,floor(random(1,10)));
     }
   }
+  myRec = new rec(10,10);
 }
 
 function draw() {
   background(51);
+  myRec.show();
   for(var i=0; i < 5; i++){
     for(var j=0; j < 5; j++){
       myNumbers[i][j].show();
