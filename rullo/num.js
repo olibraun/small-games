@@ -11,6 +11,24 @@ num = function(x,y){
     this.value = n;
   }
 
+  this.switchActive = function(){
+    if(!this.locked){
+      this.active = !this.active;
+    }
+  }
+
+  this.switchLocked = function(){
+    this.locked = !this.locked;
+  }
+
+  this.hits = function(x,y){
+    if(pow(this.pos.x - x,2) + pow(this.pos.y - y,2) <= pow(this.diameter/2,2)){
+      return true;
+    }else{
+      return false;
+    }
+  }
+
   this.show = function(){
     if(this.active){
       fill(255, 153, 0);
@@ -29,23 +47,5 @@ num = function(x,y){
     textAlign(CENTER,CENTER);
     textSize(20);
     text(str(this.value),this.pos.x,this.pos.y);
-  }
-
-  this.switchActive = function(){
-    if(!this.locked){
-      this.active = !this.active;
-    }
-  }
-
-  this.switchLocked = function(){
-    this.locked = !this.locked;
-  }
-
-  this.hits = function(x,y){
-    if(pow(this.pos.x - x,2) + pow(this.pos.y - y,2) <= pow(this.diameter/2,2)){
-      return true;
-    }else{
-      return false;
-    }
   }
 }
