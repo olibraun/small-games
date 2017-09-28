@@ -1,11 +1,33 @@
-num = function(x,y,value){
+num = function(x,y){
   this.pos = createVector(x,y);
   this.diameter = 50;
 
-  this.value = value;
+  this.value = 0;
 
   this.active = true;
   this.locked = false;
+
+  this.setValue = function(n){
+    this.value = n;
+  }
+
+  this.switchActive = function(){
+    if(!this.locked){
+      this.active = !this.active;
+    }
+  }
+
+  this.switchLocked = function(){
+    this.locked = !this.locked;
+  }
+
+  this.hits = function(x,y){
+    if(pow(this.pos.x - x,2) + pow(this.pos.y - y,2) <= pow(this.diameter/2,2)){
+      return true;
+    }else{
+      return false;
+    }
+  }
 
   this.show = function(){
     if(this.active){
@@ -25,23 +47,5 @@ num = function(x,y,value){
     textAlign(CENTER,CENTER);
     textSize(20);
     text(str(this.value),this.pos.x,this.pos.y);
-  }
-
-  this.switchActive = function(){
-    if(!this.locked){
-      this.active = !this.active;
-    }
-  }
-
-  this.switchLocked = function(){
-    this.locked = !this.locked;
-  }
-
-  this.hits = function(x,y){
-    if(pow(this.pos.x - x,2) + pow(this.pos.y - y,2) <= pow(this.diameter/2,2)){
-      return true;
-    }else{
-      return false;
-    }
   }
 }
