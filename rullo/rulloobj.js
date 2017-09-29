@@ -89,6 +89,7 @@ rullo = function(){
       for(let j=1; j < 6; j++){
         if(this.myGrid[i][j].hits(mouseX,mouseY)){
           this.myGrid[i][j].switchActive();
+          break;
         }
       }
     }
