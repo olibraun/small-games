@@ -4,6 +4,7 @@ let R;
 function setup() {
   createCanvas(500,700);
   R = new rullo;
+  R.initialize();
 }
 
 function draw() {
