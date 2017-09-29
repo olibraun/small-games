@@ -27,7 +27,7 @@ rullo = function(){
     for(let i=1; i < 6; i++){
       for(let j=1; j < 6; j++){
         if(random(25)<18){
-          this.myGrid[i][j].setValue(floor(random(10)));
+          this.myGrid[i][j].setValue(floor(random(1,10)));
         }else{
           this.myGrid[i][j].setValue(-1);
         }
