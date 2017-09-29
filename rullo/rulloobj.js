@@ -21,6 +21,53 @@ rullo = function(){
     this.myGrid[6][j] = new rec(6*70 + this.x_offset,j*70 + this.y_offset);
   }
 
+  this.initialize = function(){
+    //Fill the Rullo with random target numbers
+    //About 18 out of 25 should be sufficient
+    for(let i=1; i < 6; i++){
+      for(let j=1; j < 6; j++){
+        if(random(25)<18){
+          this.myGrid[i][j].setValue(floor(random(10)));
+        }else{
+          this.myGrid[i][j].setValue(-1);
+        }
+      }
+    }
+    //Set the horizontal squares
+    for(let i = 1; i < 6; i++){
+      let res = 0;
+      for(let j = 1; j < 6; j++){
+        let temp_val = this.myGrid[i][j].getValue();
+        if(temp_val != -1){
+          res += temp_val;
+        }
+      }
+      this.myGrid[i][0].setValue(res);
+      this.myGrid[i][6].setValue(res);
+    }
+    //Set the vertical squares
+    for(let j = 1; j < 6; j++){
+      let res = 0;
+      for(let i = 1; i < 6; i++){
+        let temp_val = this.myGrid[i][j].getValue();
+        if(temp_val != -1){
+          res += temp_val;
+        }
+      }
+      this.myGrid[0][j].setValue(res);
+      this.myGrid[6][j].setValue(res);
+    }
+    //Replace the (-1)'s
+    for(let i=1; i < 6; i++){
+      for(let j=1; j < 6; j++){
+        let temp_val = this.myGrid[i][j].getValue();
+        if(temp_val == -1){
+          this.myGrid[i][j].setValue(floor(random(1,10)));
+        }
+      }
+    }
+  }
+
   this.show = function(){
     //Show numbers
     for(let i=1; i < 6; i++){
