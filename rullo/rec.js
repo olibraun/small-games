@@ -10,6 +10,8 @@ rec = function(x,y){
   this.checkTarget = function(n){
     if(n == this.value){
       this.targetReached = true;
+    }else{
+      this.targetReached = false;
     }
   }
 
