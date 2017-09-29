@@ -88,7 +88,11 @@ rullo = function(){
     for(let i=1; i < 6; i++){
       for(let j=1; j < 6; j++){
         if(this.myGrid[i][j].hits(mouseX,mouseY)){
-          this.myGrid[i][j].switchActive();
+          if(keyIsPressed && keyCode == SHIFT){
+            this.myGrid[i][j].switchLocked();
+          }else{
+            this.myGrid[i][j].switchActive();
+          }
           break;
         }
       }
