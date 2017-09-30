@@ -15,6 +15,10 @@ num = function(x,y){
     return this.value;
   }
 
+  this.getActive = function(){
+    return this.active;
+  }
+
   this.switchActive = function(){
     if(!this.locked){
       this.active = !this.active;
