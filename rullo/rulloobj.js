@@ -82,7 +82,16 @@ rullo = function(){
   }
 
   this.checkRows = function(){
-
+    for(let j = 1; j < 6; j++){
+      let temp_val = 0;
+      for(let i = 1; i < 6; i++){
+        if(this.myGrid[i][j].getActive()){
+          temp_val += this.myGrid[i][j].getValue();
+        }
+      }
+      this.myGrid[0][j].checkTarget(temp_val);
+      this.myGrid[6][j].checkTarget(temp_val);
+    }
   }
 
   this.update = function(){
