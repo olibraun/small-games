@@ -15,6 +15,14 @@ rec = function(x,y){
     }
   }
 
+  this.hits = function(x,y){
+    let X = this.pos.x;
+    let Y = this.pos.y;
+    if(abs(X-x) < 26 && abs(Y-y) < 26){
+      //Perform action
+    }
+  }
+
   this.show = function(){
     if(!this.targetReached){
       //Grau
