@@ -18,11 +18,7 @@ rec = function(x,y){
   this.hits = function(x,y){
     let X = this.pos.x;
     let Y = this.pos.y;
-    if(abs(X-x) < 26 && abs(Y-y) < 26){
-      return true;
-    }else{
-      return false;
-    }
+    return (abs(X-x) < 26 && abs(Y-y) < 26);
   }
 
   this.show = function(){
