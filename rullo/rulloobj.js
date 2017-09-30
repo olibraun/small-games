@@ -3,7 +3,7 @@ rullo = function(){
   this.x_offset = 38;
   this.y_offset = 65;
 
-  //Initialize numbers into grid
+  //Initialize num objects into grid
   for(let i=1; i < 6; i++){
     for(let j=1; j < 6; j++){
       this.myGrid[i][j] = new num(i*70 + this.x_offset,j*70 + this.y_offset);
@@ -24,6 +24,7 @@ rullo = function(){
   this.initialize = function(){
     //Fill the Rullo with random target numbers
     //About 18 out of 25 should be sufficient
+    //Also: Have them be unlocked upon initialization (curcuial for re-initialization)
     for(let i=1; i < 6; i++){
       for(let j=1; j < 6; j++){
         if(random(25)<18){
@@ -31,6 +32,7 @@ rullo = function(){
         }else{
           this.myGrid[i][j].setValue(-1);
         }
+        this.myGrid[i][j].unlock();
       }
     }
     //Set the horizontal squares

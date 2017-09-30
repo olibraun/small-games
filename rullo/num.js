@@ -29,6 +29,10 @@ num = function(x,y){
     this.locked = !this.locked;
   }
 
+  this.unlock = function(){
+    this.locked = false;
+  }
+
   this.hits = function(x,y){
     if(pow(this.pos.x - x,2) + pow(this.pos.y - y,2) <= pow(this.diameter/2,2)){
       return true;
