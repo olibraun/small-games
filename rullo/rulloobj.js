@@ -116,6 +116,7 @@ rullo = function(){
   }
 
   this.mouseAction = function(){
+    //Check num objects for hit and perform action
     for(let i=1; i < 6; i++){
       for(let j=1; j < 6; j++){
         if(this.myGrid[i][j].hits(mouseX,mouseY)){
@@ -127,6 +128,17 @@ rullo = function(){
           break;
         }
       }
+    }
+    //Check rectangles for hit and perform action
+    //Top and bottom rows
+    for(let i = 1; i < 6; i++){
+      this.myGrid[i][0].hits(mouseX,mouseY);
+      this.myGrid[i][6].hits(mouseX,mouseY);
+    }
+    //Left and right columns
+    for(let j = 1; j < 6; j++){
+      this.myGrid[0][j].hits(mouseX,mouseY);
+      this.myGrid[6][j].hits(mouseX,mouseY);
     }
   }
 }
