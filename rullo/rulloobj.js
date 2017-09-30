@@ -132,13 +132,15 @@ rullo = function(){
     //Check rectangles for hit and perform action
     //Top and bottom rows
     for(let i = 1; i < 6; i++){
-      this.myGrid[i][0].hits(mouseX,mouseY);
-      this.myGrid[i][6].hits(mouseX,mouseY);
+      if(this.myGrid[i][0].hits(mouseX,mouseY) || this.myGrid[i][6].hits(mouseX,mouseY)){
+        this.lockColumn(i);
+      }
     }
     //Left and right columns
     for(let j = 1; j < 6; j++){
-      this.myGrid[0][j].hits(mouseX,mouseY);
-      this.myGrid[6][j].hits(mouseX,mouseY);
+      if(this.myGrid[0][j].hits(mouseX,mouseY) || this.myGrid[6][j].hits(mouseX,mouseY)){
+        this.lockRow(j);
+      }
     }
   }
 }
