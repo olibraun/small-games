@@ -115,6 +115,18 @@ rullo = function(){
     }
   }
 
+  this.lockColumn = function(n){
+    for(let i = 1; i < 6; i++){
+      this.myGrid[n][i].lock();
+    }
+  }
+
+  this.lockRow = function(n){
+    for(let i = 1; i < 6; i++){
+      this.myGrid[i][n].lock();
+    }
+  }
+
   this.mouseAction = function(){
     //Check num objects for hit and perform action
     for(let i=1; i < 6; i++){
