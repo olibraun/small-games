@@ -15,6 +15,10 @@ rec = function(x,y){
     }
   }
 
+  this.isTargetReached = function(){
+    return this.targetReached;
+  }
+
   this.hits = function(x,y){
     let X = this.pos.x;
     let Y = this.pos.y;
