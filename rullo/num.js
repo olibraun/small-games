@@ -29,12 +29,12 @@ num = function(x,y){
     this.locked = !this.locked;
   }
 
-  this.lock = function(){
-    this.locked = true;
-  }
-
   this.unlock = function(){
     this.locked = false;
+  }
+
+  this.lock = function(){
+    this.locked = true;
   }
 
   this.hits = function(x,y){

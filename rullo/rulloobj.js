@@ -3,7 +3,7 @@ rullo = function(){
   this.x_offset = 38;
   this.y_offset = 65;
 
-  //Initialize numbers into grid
+  //Initialize num objects into grid
   for(let i=1; i < 6; i++){
     for(let j=1; j < 6; j++){
       this.myGrid[i][j] = new num(i*70 + this.x_offset,j*70 + this.y_offset);
@@ -24,6 +24,7 @@ rullo = function(){
   this.initialize = function(){
     //Fill the Rullo with random target numbers
     //About 18 out of 25 should be sufficient
+    //Also: Have them be unlocked upon initialization (crucial for re-initialization)
     for(let i=1; i < 6; i++){
       for(let j=1; j < 6; j++){
         if(random(25)<18){
@@ -31,6 +32,36 @@ rullo = function(){
         }else{
           this.myGrid[i][j].setValue(-1);
         }
+        this.myGrid[i][j].unlock();
+      }
+    }
+    //It is not guaranteed that in every row and every column there is at least one (-1)
+    //Meaning that there are rows and/or columns which are already correct upon startup
+    //So let's fix this
+    //Check the columns first
+    for(let i = 1; i < 6; i++){
+      let is_ok = false;
+      for(let j = 1; j < 6; j++){
+        if(this.myGrid[i][j].getValue() == -1){
+          is_ok = true;
+          break;
+        }
+      }
+      if(!is_ok){
+        this.myGrid[i][floor(random(1,6))].setValue(-1);
+      }
+    }
+    //Now check the rows also
+    for(let j = 1; j < 6; j++){
+      let is_ok = false;
+      for(let i = 1; i < 6; i++){
+        if(this.myGrid[i][j].getValue() == -1){
+          is_ok = true;
+          break;
+        }
+      }
+      if(!is_ok){
+        this.myGrid[floor(random(1,6))][j].setValue(-1);
       }
     }
     //Set the horizontal squares
