@@ -6,7 +6,7 @@ rullo = function(){
   //Initialize numbers into grid
   for(let i=1; i < 6; i++){
     for(let j=1; j < 6; j++){
-      this.myGrid[i][j] = new num(i*70 + this.x_offset,j*70 + this.y_offset,floor(random(1,10)));
+      this.myGrid[i][j] = new num(i*70 + this.x_offset,j*70 + this.y_offset);
     }
   }
   //Initialize rectangles into grid
