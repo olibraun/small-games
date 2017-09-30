@@ -24,7 +24,7 @@ rullo = function(){
   this.initialize = function(){
     //Fill the Rullo with random target numbers
     //About 18 out of 25 should be sufficient
-    //Also: Have them be unlocked upon initialization (crucial for re-initialization)
+    //Also: Have them be unlocked and active upon initialization (crucial for re-initialization)
     for(let i=1; i < 6; i++){
       for(let j=1; j < 6; j++){
         if(random(25)<18){
@@ -33,6 +33,7 @@ rullo = function(){
           this.myGrid[i][j].setValue(-1);
         }
         this.myGrid[i][j].unlock();
+        this.myGrid[i][j].makeActive();
       }
     }
     //It is not guaranteed that in every row and every column there is at least one (-1)
