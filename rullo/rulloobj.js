@@ -23,11 +23,11 @@ rullo = function(){
 
   this.initialize = function(){
     //Fill the Rullo with random target numbers
-    //About 18 out of 25 should be sufficient
+    //About 16 out of 25 should be sufficient
     //Also: Have them be unlocked and active upon initialization (crucial for re-initialization)
     for(let i=1; i < 6; i++){
       for(let j=1; j < 6; j++){
-        if(random(25)<18){
+        if(random(25)<16){
           this.myGrid[i][j].setValue(floor(random(1,10)));
         }else{
           this.myGrid[i][j].setValue(-1);
