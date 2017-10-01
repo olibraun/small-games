@@ -1,20 +1,20 @@
-gameManager = function(rullo){
+gameManager = function(){
   //Properties
-  this.rullo = rullo;
+  let R = new rullo();
   let won = false;
   let winOverlay = new winScreen();
 
   //Setup
-  this.rullo.initialize();
+  R.initialize();
 
   this.update = function(){
-    this.rullo.update();
-    won = this.rullo.isRulloWon();
+    R.update();
+    won = R.isRulloWon();
   }
 
   this.show = function(){
     if(!won){
-      this.rullo.show();
+      R.show();
     }else{
       winOverlay.show();
     }
@@ -22,9 +22,9 @@ gameManager = function(rullo){
 
   this.mouseAction = function(){
     if(!won){
-      this.rullo.mouseAction();
+      R.mouseAction();
     }else{
-      this.rullo.initialize();
+      R.initialize();
     }
   }
 }

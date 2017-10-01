@@ -1,11 +1,9 @@
 //Sketch-Datei für Rullo
-let R;
 let manager;
 
 function setup() {
   createCanvas(500,700);
-  R = new rullo;
-  manager = new gameManager(R);
+  manager = new gameManager();
 }
 
 function draw() {
