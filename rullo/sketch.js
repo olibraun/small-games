@@ -10,8 +10,6 @@ function setup() {
 
 function draw() {
   background(51);
-  //R.update();
-  //R.show();
   manager.update();
   manager.show();
 }
