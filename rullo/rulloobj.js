@@ -89,15 +89,15 @@ rullo = function(){
       this.myGrid[0][j].setValue(res);
       this.myGrid[6][j].setValue(res);
     }
-    //Replace the (-1)'s
-    for(let i=1; i < 6; i++){
-      for(let j=1; j < 6; j++){
-        let temp_val = this.myGrid[i][j].getValue();
-        if(temp_val == -1){
-          this.myGrid[i][j].setValue(floor(random(1,10)));
-        }
-      }
-    }
+    // //Replace the (-1)'s
+    // for(let i=1; i < 6; i++){
+    //   for(let j=1; j < 6; j++){
+    //     let temp_val = this.myGrid[i][j].getValue();
+    //     if(temp_val == -1){
+    //       this.myGrid[i][j].setValue(floor(random(1,10)));
+    //     }
+    //   }
+    // }
   }
 
   this.checkColumns = function(){

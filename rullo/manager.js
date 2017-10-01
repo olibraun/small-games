@@ -2,6 +2,7 @@ gameManager = function(rullo){
   //Properties
   this.rullo = rullo;
   let won = false;
+  let winOverlay = new winScreen();
 
   //Setup
   this.rullo.initialize();
@@ -15,14 +16,15 @@ gameManager = function(rullo){
     if(!won){
       this.rullo.show();
     }else{
-      rectMode(CENTER);
-      noStroke();
-      fill(0,255,0);
-      rect(width/2,height/2,50,50);
+      winOverlay.show();
     }
   }
 
   this.mouseAction = function(){
-    this.rullo.mouseAction();
+    if(!won){
+      this.rullo.mouseAction();
+    }else{
+      this.rullo.initialize();
+    }
   }
 }
