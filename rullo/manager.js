@@ -8,6 +8,7 @@ gameManager = function(rullo){
 
   this.update = function(){
     this.rullo.update();
+    won = this.rullo.isRulloWon();
   }
 
   this.show = function(){
