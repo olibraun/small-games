@@ -12,7 +12,14 @@ gameManager = function(rullo){
   }
 
   this.show = function(){
-    this.rullo.show();
+    if(!won){
+      this.rullo.show();
+    }else{
+      rectMode(CENTER);
+      noStroke();
+      fill(0,255,0);
+      rect(width/2,height/2,50,50);
+    }
   }
 
   this.mouseAction = function(){
