@@ -126,6 +126,18 @@ rullo = function(){
     }
   }
 
+  this.isRulloWon = function(){
+    let won = true;
+    for(let i = 1; i < 6; i++){
+      won = won
+          && this.myGrid[i][0].isTargetReached()
+          && this.myGrid[i][6].isTargetReached()
+          && this.myGrid[0][i].isTargetReached()
+          && this.myGrid[6][i].isTargetReached();
+    }
+    return won;
+  }
+
   this.update = function(){
     this.checkColumns();
     this.checkRows();
