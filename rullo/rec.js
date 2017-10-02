@@ -28,7 +28,6 @@ rec = function(x,y){
   }
 
   this.displayCurrent = function(n){
-    console.log(n);
     this.displayValue = n;
     this.displayActive = true;
     this.timer = 70;

@@ -187,6 +187,14 @@ rullo = function(){
     return res;
   }
 
+  this.getCurrentRowValue = function(n){
+    let res = 0;
+    for(let i = 1; i < 6; i++){
+      res += this.myGrid[i][n].getValue();
+    }
+    return res;
+  }
+
   this.mouseAction = function(){
     //Check num objects for hit and perform action
     for(let i=1; i < 6; i++){
@@ -224,6 +232,13 @@ rullo = function(){
       if(this.myGrid[0][j].hits(mouseX,mouseY) && this.myGrid[0][j].isTargetReached()
       || this.myGrid[6][j].hits(mouseX,mouseY) && this.myGrid[6][j].isTargetReached()){
         this.lockRow(j);
+        break;
+      }
+      if(this.myGrid[0][j].hits(mouseX,mouseY) && !this.myGrid[0][j].isTargetReached()
+      || this.myGrid[6][j].hits(mouseX,mouseY) && !this.myGrid[6][j].isTargetReached()){
+        let currentValue = this.getCurrentRowValue(j);
+        this.myGrid[0][j].displayCurrent(currentValue);
+        this.myGrid[6][j].displayCurrent(currentValue);
         break;
       }
     }
