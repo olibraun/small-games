@@ -191,6 +191,7 @@ rullo = function(){
       if(this.myGrid[i][0].hits(mouseX,mouseY) && this.myGrid[i][0].isTargetReached()
       || this.myGrid[i][6].hits(mouseX,mouseY) && this.myGrid[i][6].isTargetReached()){
         this.lockColumn(i);
+        break;
       }
     }
     //Left and right columns
@@ -198,6 +199,7 @@ rullo = function(){
       if(this.myGrid[0][j].hits(mouseX,mouseY) && this.myGrid[0][j].isTargetReached()
       || this.myGrid[6][j].hits(mouseX,mouseY) && this.myGrid[6][j].isTargetReached()){
         this.lockRow(j);
+        break;
       }
     }
   }
