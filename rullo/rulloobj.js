@@ -182,7 +182,9 @@ rullo = function(){
   this.getCurrentColumnValue = function(n){
     let res = 0;
     for(let i = 1; i < 6; i++){
-      res += this.myGrid[n][i].getValue();
+      if(this.myGrid[n][i].getActive()){
+        res += this.myGrid[n][i].getValue();  
+      }
     }
     return res;
   }
@@ -190,7 +192,9 @@ rullo = function(){
   this.getCurrentRowValue = function(n){
     let res = 0;
     for(let i = 1; i < 6; i++){
-      res += this.myGrid[i][n].getValue();
+      if(this.myGrid[i][n].getActive()){
+        res += this.myGrid[i][n].getValue();
+      }
     }
     return res;
   }
