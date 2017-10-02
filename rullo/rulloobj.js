@@ -141,6 +141,14 @@ rullo = function(){
   this.update = function(){
     this.checkColumns();
     this.checkRows();
+
+    //Update rectangles
+    for(let l = 1; l < 6; l++){
+      this.myGrid[l][0].update();
+      this.myGrid[l][6].update();
+      this.myGrid[0][l].update();
+      this.myGrid[6][l].update();
+    }
   }
 
   this.show = function(){
@@ -171,6 +179,14 @@ rullo = function(){
     }
   }
 
+  this.getCurrentColumnValue = function(n){
+    let res = 0;
+    for(let i = 1; i < 6; i++){
+      res += this.myGrid[n][i].getValue();
+    }
+    return res;
+  }
+
   this.mouseAction = function(){
     //Check num objects for hit and perform action
     for(let i=1; i < 6; i++){
@@ -188,9 +204,18 @@ rullo = function(){
     //Check rectangles for hit and perform action
     //Top and bottom rows
     for(let i = 1; i < 6; i++){
+      //This is the case for a rectangle which has its target already achieved
       if(this.myGrid[i][0].hits(mouseX,mouseY) && this.myGrid[i][0].isTargetReached()
       || this.myGrid[i][6].hits(mouseX,mouseY) && this.myGrid[i][6].isTargetReached()){
         this.lockColumn(i);
+        break;
+      }
+      //This is the case for a rectangle which has not yet reached its target
+      if(this.myGrid[i][0].hits(mouseX,mouseY) && !this.myGrid[i][0].isTargetReached()
+      || this.myGrid[i][6].hits(mouseX,mouseY) && !this.myGrid[i][6].isTargetReached()){
+        let currentValue = this.getCurrentColumnValue(i);
+        this.myGrid[i][0].displayCurrent(currentValue);
+        this.myGrid[i][6].displayCurrent(currentValue);
         break;
       }
     }
