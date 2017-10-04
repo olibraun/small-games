@@ -23,5 +23,4 @@ myButton = function(x,y,msg){
     textStyle(NORMAL);
     text(msg,this.pos.x,this.pos.y);
   }
-
 }
