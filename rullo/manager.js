@@ -3,8 +3,10 @@ gameManager = function(){
   let R = new rullo();
   let won = false;
   let winOverlay = new winScreen();
-  this.info = new infoButton();
+  this.infoButton = new myButton(width-70,height-50,"INFO");
   this.infoOverlay = new infoScreen();
+  this.resetButton = new myButton(width/2,height-50,"RESET");
+  this.newButton = new myButton(70,height-50,"NEW");
 
   this.screenState = "GAME";
 
@@ -22,7 +24,9 @@ gameManager = function(){
     switch(this.screenState){
       case "GAME":
         R.show();
-        this.info.show();
+        this.infoButton.show();
+        this.resetButton.show();
+        this.newButton.show();
         break;
 
       case "WON":
@@ -39,7 +43,12 @@ gameManager = function(){
     switch(this.screenState){
       case "GAME":
         R.mouseAction();
-        this.screenState = this.info.hits(mouseX,mouseY) ? "INFO" : "GAME";
+        this.screenState = this.infoButton.hits(mouseX,mouseY) ? "INFO" : "GAME";
+        if(this.resetButton.hits(mouseX,mouseY)){
+          R.reset();
+        }else if(this.newButton.hits(mouseX,mouseY)){
+          R.initialize();
+        }
         break;
 
       case "WON":
