@@ -22,6 +22,7 @@ gameManager = function(){
 
   this.show = function(){
     switch(this.screenState){
+      default:
       case "GAME":
         R.show();
         this.infoButton.show();
@@ -41,6 +42,7 @@ gameManager = function(){
 
   this.mouseAction = function(){
     switch(this.screenState){
+      default:
       case "GAME":
         R.mouseAction();
         this.screenState = this.infoButton.hits(mouseX,mouseY) ? "INFO" : "GAME";
