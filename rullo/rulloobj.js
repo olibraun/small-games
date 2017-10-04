@@ -183,7 +183,7 @@ rullo = function(){
     let res = 0;
     for(let i = 1; i < 6; i++){
       if(this.myGrid[n][i].getActive()){
-        res += this.myGrid[n][i].getValue();  
+        res += this.myGrid[n][i].getValue();
       }
     }
     return res;
@@ -197,6 +197,15 @@ rullo = function(){
       }
     }
     return res;
+  }
+
+  this.reset = function(){
+    for(let i = 1; i < 6; i++){
+      for(let j = 1; j < 6; j++){
+        this.myGrid[i][j].unlock();
+        this.myGrid[i][j].makeActive();
+      }
+    }
   }
 
   this.mouseAction = function(){
