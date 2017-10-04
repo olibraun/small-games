@@ -66,6 +66,7 @@ rec = function(x,y){
     noStroke();
     textAlign(CENTER,CENTER);
     textSize(20);
+    textStyle(NORMAL);
     if(!this.displayActive){
       text(str(this.value),this.pos.x,this.pos.y);
     }else{
