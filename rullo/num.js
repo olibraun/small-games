@@ -29,6 +29,10 @@ num = function(x,y){
     this.active = true;
   }
 
+  this.getLocked = function(){
+    return this.locked;
+  }
+
   this.switchLocked = function(){
     this.locked = !this.locked;
   }
