@@ -208,14 +208,14 @@ rullo = function(){
     }
   }
 
-  this.mouseAction = function(){
+  this.mouseAction = function(arg){
     //Check num objects for hit and perform action
     for(let i=1; i < 6; i++){
       for(let j=1; j < 6; j++){
         if(this.myGrid[i][j].hits(mouseX,mouseY)){
-          if(keyIsPressed && keyCode == SHIFT){
+          if(arg == "LONG"){
             this.myGrid[i][j].switchLocked();
-          }else{
+          }else if(arg == "SHORT"){
             this.myGrid[i][j].switchActive();
           }
           break;
