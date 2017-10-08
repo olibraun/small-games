@@ -40,11 +40,11 @@ gameManager = function(){
     }
   }
 
-  this.mouseAction = function(){
+  this.mouseAction = function(arg){
     switch(this.screenState){
       default:
       case "GAME":
-        R.mouseAction();
+        R.mouseAction(arg);
         this.screenState = this.infoButton.hits(mouseX,mouseY) ? "INFO" : "GAME";
         if(this.resetButton.hits(mouseX,mouseY)){
           R.reset();
