@@ -189,8 +189,23 @@ rullo = function(){
   }
 
   this.lockRow = function(n){
+    //We want to be able to use this function to unlock a completely locked row as well.
+    //So check for this case:
+    let allLocked = true;
     for(let i = 1; i < 6; i++){
-      this.myGrid[i][n].lock();
+      if(!this.myGrid[i][n].getLocked()){
+        allLocked = false;
+        break;
+      }
+    }
+    if(allLocked){
+      for(let i = 1; i < 6; i++){
+        this.myGrid[i][n].unlock();
+      }
+    }else{
+      for(let i = 1; i < 6; i++){
+        this.myGrid[i][n].lock();
+      }
     }
   }
 
